@@ -28,4 +28,8 @@ class Bank:
             self.deposit.append(amount)
             return f'You have withdrawn {amount}, and your balance is {self.balance}. {self.deposit}'
 
+    def deposit_statement(self):
+     print (*self.deposits, sep="\n")
 
+    def withdraw_statement(self):
+     print (*self.deposits, sep="\n")

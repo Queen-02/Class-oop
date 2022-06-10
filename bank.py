@@ -25,7 +25,7 @@ class Bank:
         elif amount < 0:
             return f'Amount is negative, and you cannot withdraw'
         else:
-            self.balance -= amount
+            # self.balance -= amount
             self.withdrawals.append(amount)
             self.transaction_cost = 100
             self.balance -= amount + self.transaction_cost

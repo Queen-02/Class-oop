@@ -19,17 +19,25 @@ class Bank:
             
     
     def withdraw(self, amount):
+
         if amount > self.balance:
             return f'Your balance is {amount}, and you cannot withdraw this {self.balance} amount'
         elif amount < 0:
             return f'Amount is negative, and you cannot withdraw'
         else:
             self.balance -= amount
-            self.deposit.append(amount)
-            return f'You have withdrawn {amount}, and your balance is {self.balance}. {self.deposit}'
+            self.withdrawals.append(amount)
+            self.transaction_cost = 100
+            self.balance -= amount + self.transaction_cost
+            return f'You have withdrawn {amount}, and your balance is {self.balance}. {self.withdrawals}'
 
     def deposit_statement(self):
-     print (*self.deposits, sep="\n")
+        for amount in self.deposits:
+            print (f"Here is your ministatement: {amount}")
 
     def withdraw_statement(self):
-     print (*self.deposits, sep="\n")
+        for amount in self.withdrawals:
+            print (f"Here is your ministatement: {amount}")
+    
+    def show_balance(self):
+        return f'Your current balance is {self.balance}'

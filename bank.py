@@ -7,6 +7,7 @@ class Bank:
         self.balance = 0
         self.deposits = []
         self.withdrawals = []
+        self.transaction_cost = 100
     
     def deposit(self, amount):
         if amount <= 0:
@@ -20,14 +21,13 @@ class Bank:
     
     def withdraw(self, amount):
 
-        if amount > self.balance:
+        if amount + self.transaction_cost > self.balance:
             return f'Your balance is {amount}, and you cannot withdraw this {self.balance} amount'
         elif amount < 0:
             return f'Amount is negative, and you cannot withdraw'
         else:
             # self.balance -= amount
             self.withdrawals.append(amount)
-            self.transaction_cost = 100
             self.balance -= amount + self.transaction_cost
             return f'You have withdrawn {amount}, and your balance is {self.balance}. {self.withdrawals}'
 

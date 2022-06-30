@@ -12,8 +12,6 @@ class Account:
         self.withdrawals = []
         self.withs = []
         self.transactions = 100
-        self.date = datetime.now()
-        self.state = self.date.strftime("%d/%m/%y")
         # Add a new attribute loan_balance which is zero by default.
         self.loan_balance = 0
         self.accBalance = 0
@@ -30,7 +28,7 @@ class Account:
 
             # Update the deposit method to store each deposit transaction as a dictionary like this
             self.deposits.append(
-                {'date': self.state, 'amount': money, 'narration': 'Deposit'})
+                {'date': datetime.now(), 'amount': money, 'narration': 'Deposit'})
             print(
                 f"You have deposited {money} and your balance is {self.balance}")
             return f"{self.deposits}"
@@ -48,7 +46,7 @@ class Account:
             # Update the withdraw method to store each deposit transaction as a dictionary like this
 
             self.withdrawals.append(
-                {'date': self.state, 'amount': amount, 'narration': 'Withdrawal'})
+                {'date': datetime.now(), 'amount': amount, 'narration': 'Withdrawal'})
             print(
                 f"You have withdrawn {amount} and your balance is {self.balance}")
             return f"{self.withdrawals}"
